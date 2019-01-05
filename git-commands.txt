@@ -52,4 +52,14 @@
 #git commit  git-commands.txt -m "add one more..."
 fatal: cannot do a partial commit during a merge.
 #git commit  -m "add one more..."
+#git checkout -b user
+#create user.html
+#git add user.html
+#git status
+#git --set-upstream-to origin/user (?)
+#git push
+#or
+#git push origin user
+#or
+#git push --set-upstream origin/login
 
