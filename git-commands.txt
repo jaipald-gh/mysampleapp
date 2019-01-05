@@ -43,4 +43,8 @@
 #origin
 #git status
 #git push -u origin
+#git checkout login
+#git pull origin login
+#or
+#git branch --set-upstream-to origin/login
 #
