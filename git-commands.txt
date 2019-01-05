@@ -29,4 +29,18 @@
 #git commit without editor (command line commenting)
 #git commit -m "commmit 2"
 #discard modified files in local repos
-#git 
+#create welcome.html
+#git checkout -b login
+#create login.html
+#git add login.html
+#git commit -m "login.html ..."
+#git checkout master
+#git merge login
+#git remote
+# create remote git repository 
+#git remote add origin https://github.com/jaipald-gh/mysampleapp.git 
+#git remote
+#origin
+#git status
+#git push -u origin
+#
