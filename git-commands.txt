@@ -47,4 +47,9 @@
 #git pull origin login
 #or
 #git branch --set-upstream-to origin/login
-#
+#git commit -F git-commands.txt -m "add one more..."
+#fatal: Option -m cannot be combined with -c/-C/-F.
+#git commit  git-commands.txt -m "add one more..."
+fatal: cannot do a partial commit during a merge.
+#git commit  -m "add one more..."
+
