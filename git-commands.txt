@@ -63,3 +63,12 @@ fatal: cannot do a partial commit during a merge.
 #or
 #git push --set-upstream origin/login
 
+#pull request from user to master
+#merge pull request to master
+#git checkout login
+#git pull origin master 
+#git branch --set-upstream origin login
+#git push 
+#or 
+#git push origin login
+
