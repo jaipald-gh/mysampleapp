@@ -3,6 +3,15 @@
 #git config --global user.name "Jaipal Danthawada"
 #git config --global user.email "jaipal.a.reddy@capgemini.com"
 ...
+#git config --list
+branch.master.remote=origin
+branch.master.merge=refs/head/master
+branch.login.remote=origin
+branch.login.merge=refs/head/login
+branch.user.remote=origin
+branch.user.merge=refs/head/user
+remote.origin.url=
+remote.origin.fetch=
 #git status
 # create app.js
 #move to staging
@@ -72,3 +81,17 @@ fatal: cannot do a partial commit during a merge.
 #or 
 #git push origin login
 
+#git log --all --graph --decorate --one#gline
+#git log -all --oneline
+# Detach it from remote origin
+#git remote rm origin
+#git config --help
+#git help config
+#delete .git
+#git add -A
+or 
+#git add .
+#git clone url
+#or
+#git clone ../remote_repo.git .
+#
