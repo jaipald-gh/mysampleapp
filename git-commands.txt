@@ -94,4 +94,27 @@ or
 #git clone url
 #or
 #git clone ../remote_repo.git .
-#
+#git remote -v
+origin https://github.com/jaipald-gh/mysampleapp.git (fetch)
+origin https://github.com/jaipald-gh/mysampleapp.git (push)
+git branch -a
+* login
+master
+user
+remotes/origin/login
+remotes/origin/master
+remotes/origin/user
+#git diff
+#git branch
+*login
+master
+user
+#git branch --merged
+*login
+master
+user
+#git branch -d <branch>
+#git branch -a
+#git push origin --delete <branch>
+#git branch -add
+
