@@ -113,8 +113,216 @@ user
 *login
 master
 user
+#git checkout master
+#git checkout -b test
+#create test.html
+#git add test.html
+#git commit -m "test..."
+#git push -u origin test
+#git branch -a
+login
+  master
+* test
+  user
+  remotes/origin/login
+  remotes/origin/master
+  remotes/origin/test
+  remotes/origin/user
 #git branch -d <branch>
 #git branch -a
-#git push origin --delete <branch>
-#git branch -add
+login
+ *master
+  user
+  remotes/origin/login
+  remotes/origin/master
+  remotes/origin/test
+  remotes/origin/user
+
+#git push origin --delete test
+#git branch -a
+login
+ *master
+  user
+  remotes/origin/login
+  remotes/origin/master
+  remotes/origin/user
+#Revert the modified file 
+#git checkout calc.py
+#git commit -m "Completed Multiply function"
+#git log
+#change the commit message (last only?)
+#git commit --amend -m "Completed Substract function"
+#git log stat
+#git checkout master
+#git log
+#git checkout substract-feature
+#git log
+Cherry picking in Git means to choose a commit from one branch and apply it onto another.
+This is in contrast with other ways such as merge and rebase which normally apply many commits onto another branch.
+https://stackoverflow.com/questions/9339429/what-does-cherry-picking-a-commit-with-git-mean
+
+#git cherry-pick commit-id (first 5-10 chars also fine)
+#git cherry-pick 8d9d5a4
+#git log
+#git reset types
+#mixed (default)
+#soft
+#hard
+#git reset --soft 029c67c5cd (soft reset, files not removed, moved to staging): local repo->staging
+#git reset 029c67c5cd (mixed reset by default, files not removed, but moved to working directory or not staged): local repo->staging->working dir/no staging/un tracking
+
+#git reset --hard 029c67c5cd (hard reset, files removed, moved to the state it was before the commit):local repo->staging->working dir->state at commit id)
+HEAD is now at 029c67c Initial commit
+#git clean -df (cleans or removes the untracked directories/files)
+
+#git reflog (upto 30 days, it is maintained, garbage collector will remove then)
+029c67c (HEAD -> master) HEAD@{0}: reset: moving to 029c67c5cd
+029c67c (HEAD -> master) HEAD@{1}: reset: moving to 029c67c5cd
+029c67c (HEAD -> master) HEAD@{2}: reset: moving to 029c67c5cd
+3550e20 HEAD@{3}: checkout: moving from substract-feature to master
+8d9d5a4 (substract-feature) HEAD@{4}: checkout: moving from master to substract-feature
+3550e20 HEAD@{5}: cherry-pick: Completed Substract function
+10d7239 (origin/substract-feature, origin/master, origin/HEAD) HEAD@{6}: checkout: moving from substract-feature to master
+8d9d5a4 (substract-feature) HEAD@{7}: checkout: moving from master to substract-feature
+10d7239 (origin/substract-feature, origin/master, origin/HEAD) HEAD@{8}: checkout: moving from substract-feature to master
+8d9d5a4 (substract-feature) HEAD@{9}: checkout: moving from master to substract-feature
+10d7239 (origin/substract-feature, origin/master, origin/HEAD) HEAD@{10}: checkout: moving from substract-feature to master
+8d9d5a4 (substract-feature) HEAD@{11}: commit (amend): Completed Substract function
+8581259 HEAD@{12}: commit (amend): Completed Substract function
+253c183 HEAD@{13}: commit (amend): Completed Substract function
+5c344c5 HEAD@{14}: commit: Completed Multiply function
+10d7239 (origin/substract-feature, origin/master, origin/HEAD) HEAD@{15}: checkout: moving from master to substract-feature
+10d7239 (origin/substract-feature, origin/master, origin/HEAD) HEAD@{16}: commit: First commit
+029c67c (HEAD -> master) HEAD@{17}: clone: from https://github.com/jaipald-gh/mysamplecalc.git
+
+jaireddy@LIN36001040 MINGW64 ~/jdesk/others/poc/git-demo/mysamplecalc (master)
+
+#git checkout 3550e20
+Note: checking out '3550e20'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 3550e20 Completed Substract function
+
+jaireddy@LIN36001040 MINGW64 ~/jdesk/others/poc/git-demo/mysamplecalc ((3550e20...))
+
+# git log
+#git branch backup
+#git checkout master
+#git log
+#git checkout backup
+#git log
+#git revert commit-id (revert to the state of the commit-id mentioned without touching/rewriting history unlike reset, useful when the changes already pushed to remote and other developers are pull the changes to their branches)
+#git revert  10d7239cfe3
+
+$ git revert 3550e200d269536d79528f43b79a74a8b3a1903d
+[backup 33bfea8] Revert "Completed Substract function"
+ 3 files changed, 1 insertion(+), 3 deletions(-)
+ delete mode 100644 temp1.txt
+
+jaireddy@LIN36001040 MINGW64 ~/jdesk/others/poc/git-demo/mysamplecalc (backup)
+$ git status
+On branch backup
+nothing to commit, working tree clean
+
+jaireddy@LIN36001040 MINGW64 ~/jdesk/others/poc/git-demo/mysamplecalc (backup)
+$ git log
+commit 33bfea81129e4da147c07c7279e02232e2304441 (HEAD -> backup)
+Author: Jaipal Danthawada <jaipal.a.reddy@capgemini.com>
+Date:   Mon Jan 7 00:48:33 2019 +0800
+
+    Revert "Completed Substract function"
+
+    This reverts commit 3550e200d269536d79528f43b79a74a8b3a1903d.
+
+commit 3550e200d269536d79528f43b79a74a8b3a1903d
+Author: Jaipal Danthawada <jaipal.a.reddy@capgemini.com>
+Date:   Sun Jan 6 18:51:56 2019 +0800
+
+    Completed Substract function
+
+commit 10d7239cfe3c59b6635885fe8050f3772ab30ffa (origin/substract-feature, origin/master, origin/HEAD)
+Author: Jaipal Danthawada <jaipal.a.reddy@capgemini.com>
+Date:   Sun Jan 6 18:33:56 2019 +0800
+
+    First commit
+:
+$ git status
+On branch backup
+You are currently reverting commit 10d7239.
+  (fix conflicts and run "git revert --continue")
+  (use "git revert --abort" to cancel the revert operation)
+
+Unmerged paths:
+  (use "git reset HEAD <file>..." to unstage)
+  (use "git add/rm <file>..." as appropriate to mark resolution)
+
+        deleted by them: calc.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+jaireddy@LIN36001040 MINGW64 ~/jdesk/others/poc/git-demo/mysamplecalc (backup|REVERTING)
+	
+#git revert --continue
+#git revert --abort
+
+#git push -u origin backup
+$ git diff 33bfea81129e4da147c07c7279e02232e2304441 3550e200d269536d79528f43b79a74a8b3a1903d
+diff --git a/.gitignore b/.gitignore
+index a1c2a23..9f0929b 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -21,3 +21,4 @@
+
+ # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+ hs_err_pid*
++
+diff --git a/calc.py b/calc.py
+index a33b4f8..8c35d03 100644
+--- a/calc.py
++++ b/calc.py
+@@ -2,7 +2,7 @@ def add(x,y);
+     pass
+
+ def substract(x,y);
+-   pass
++   return x-y
+The major benefit of rebasing is that you get a much cleaner project history. First, it eliminates the unnecessary merge commits required by git merge. Second, as you can see in the above diagram, rebasing also results in a perfectly linear project history—you can follow the tip of feature all the way to the beginning of the project without any forks. This makes it easier to navigate your project with commands like git log, git bisect, and gitk.
+
+But, there are two trade-offs for this pristine commit history: safety and traceability. If you don’t follow the Golden Rule of Rebasing, re-writing project history can be potentially catastrophic for your collaboration workflow. And, less importantly, rebasing loses the context provided by a merge commit—you can’t see when upstream changes were incorporated into the feature.
+
+Interactive Rebasing
+Interactive rebasing gives you the opportunity to alter commits as they are moved to the new branch. This is even more powerful than an automated rebase, since it offers complete control over the branch’s commit history. Typically, this is used to clean up a messy history before merging a feature branch into master.
+
+To begin an interactive rebasing session, pass the i option to the git rebase command:
+
+git checkout feature
+git rebase -i master
+This will open a text editor listing all of the commits that are about to be moved:
+
+pick 33d5b7a Message for commit #1
+pick 9480b3d Message for commit #2
+pick 5c67e61 Message for commit #3
+This listing defines exactly what the branch will look like after the rebase is performed. By changing the pick command and/or re-ordering the entries, you can make the branch’s history look like whatever you want. For example, if the 2nd commit fixes a small problem in the 1st commit, you can condense them into a single commit with the fixup command:
+
+pick 33d5b7a Message for commit #1
+fixup 9480b3d Message for commit #2
+pick 5c67e61 Message for commit #3
+When you save and close the file, Git will perform the rebase according to your instructions, resulting in project history that looks like the following:
+
+
+#git branch
+#git branch feature1
+#git branch
+#git checkout feature1
+#git branch (remote)
+#git branch -a (local,remote)
+
 
