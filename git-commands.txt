@@ -336,3 +336,8 @@ git merge requires push
 #...
 git rebase writes master history first
 git merge writes feature history first
+...
+#git unstage staged files
+#git reset HEAD q qcls
+
+
