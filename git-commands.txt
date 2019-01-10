@@ -305,6 +305,8 @@ To begin an interactive rebasing session, pass the i option to the git rebase co
 
 git checkout feature
 git rebase -i master
+
+git rebase -i HEAD
 This will open a text editor listing all of the commits that are about to be moved:
 
 pick 33d5b7a Message for commit #1
