@@ -324,5 +324,15 @@ When you save and close the file, Git will perform the rebase according to your 
 #git checkout feature1
 #git branch (remote)
 #git branch -a (local,remote)
-
-
+#
+git rebase may not require push
+git merge requires push
+#git checkout master
+#git pull origin master
+#git checkout -b feature
+#git rebase master
+#or
+#git merge master
+#...
+git rebase writes master history first
+git merge writes feature history first
